@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StdMng2015NModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="StdMng2015NModelStoreContainer">
+          <EntitySet Name="t_Course" EntityType="StdMng2015NModel.Store.t_Course" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="t_MassData" EntityType="StdMng2015NModel.Store.t_MassData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="t_SC" EntityType="StdMng2015NModel.Store.t_SC" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="t_Sdept" EntityType="StdMng2015NModel.Store.t_Sdept" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="t_Student" EntityType="StdMng2015NModel.Store.t_Student" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__t_Course__CPno__0519C6AF" Association="StdMng2015NModel.Store.FK__t_Course__CPno__0519C6AF">
+            <End Role="t_Course" EntitySet="t_Course" />
+            <End Role="t_Course1" EntitySet="t_Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_SC__Cno__08EA5793" Association="StdMng2015NModel.Store.FK__t_SC__Cno__08EA5793">
+            <End Role="t_Course" EntitySet="t_Course" />
+            <End Role="t_SC" EntitySet="t_SC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_SC__Sno__07F6335A" Association="StdMng2015NModel.Store.FK__t_SC__Sno__07F6335A">
+            <End Role="t_Student" EntitySet="t_Student" />
+            <End Role="t_SC" EntitySet="t_SC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Student__SImag__023D5A04" Association="StdMng2015NModel.Store.FK__t_Student__SImag__023D5A04">
+            <End Role="t_Sdept" EntitySet="t_Sdept" />
+            <End Role="t_Student" EntitySet="t_Student" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="t_Course">
+          <Key>
+            <PropertyRef Name="Cno" />
+          </Key>
+          <Property Name="Cno" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CPno" Type="varchar" MaxLength="50" />
+          <Property Name="CCredit" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_MassData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Num" Type="bigint" Nullable="false" />
+          <Property Name="Content" Type="varchar" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_SC">
+          <Key>
+            <PropertyRef Name="Sno" />
+            <PropertyRef Name="Cno" />
+          </Key>
+          <Property Name="Sno" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cno" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Grade" Type="smallint" />
+        </EntityType>
+        <EntityType Name="t_Sdept">
+          <Key>
+            <PropertyRef Name="SdeptID" />
+          </Key>
+          <Property Name="SdeptID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SdeptName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_Student">
+          <Key>
+            <PropertyRef Name="sno" />
+          </Key>
+          <Property Name="sno" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="sname" Type="varchar" MaxLength="50" />
+          <Property Name="SGender" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="SBirth" Type="datetime" Nullable="false" />
+          <Property Name="Sdept" Type="varchar" MaxLength="50" />
+          <Property Name="SImage" Type="varbinary(max)" />
+          <Property Name="Age" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="sIDNum" Type="varchar" MaxLength="50" />
+          <Property Name="sEmail" Type="varchar" MaxLength="100" />
+          <Property Name="SLoc" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__t_Course__CPno__0519C6AF">
+          <End Role="t_Course" Type="StdMng2015NModel.Store.t_Course" Multiplicity="0..1" />
+          <End Role="t_Course1" Type="StdMng2015NModel.Store.t_Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Course">
+              <PropertyRef Name="Cno" />
+            </Principal>
+            <Dependent Role="t_Course1">
+              <PropertyRef Name="CPno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_SC__Cno__08EA5793">
+          <End Role="t_Course" Type="StdMng2015NModel.Store.t_Course" Multiplicity="1" />
+          <End Role="t_SC" Type="StdMng2015NModel.Store.t_SC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Course">
+              <PropertyRef Name="Cno" />
+            </Principal>
+            <Dependent Role="t_SC">
+              <PropertyRef Name="Cno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_SC__Sno__07F6335A">
+          <End Role="t_Student" Type="StdMng2015NModel.Store.t_Student" Multiplicity="1" />
+          <End Role="t_SC" Type="StdMng2015NModel.Store.t_SC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Student">
+              <PropertyRef Name="sno" />
+            </Principal>
+            <Dependent Role="t_SC">
+              <PropertyRef Name="Sno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Student__SImag__023D5A04">
+          <End Role="t_Sdept" Type="StdMng2015NModel.Store.t_Sdept" Multiplicity="0..1" />
+          <End Role="t_Student" Type="StdMng2015NModel.Store.t_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Sdept">
+              <PropertyRef Name="SdeptID" />
+            </Principal>
+            <Dependent Role="t_Student">
+              <PropertyRef Name="Sdept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StdMng2015NModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="StdMng2015NEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_Course" EntityType="StdMng2015NModel.t_Course" />
+          <EntitySet Name="t_SC" EntityType="StdMng2015NModel.t_SC" />
+          <EntitySet Name="t_Sdept" EntityType="StdMng2015NModel.t_Sdept" />
+          <EntitySet Name="t_Student" EntityType="StdMng2015NModel.t_Student" />
+          <AssociationSet Name="FK__t_Course__CPno__0519C6AF" Association="StdMng2015NModel.FK__t_Course__CPno__0519C6AF">
+            <End Role="t_Course" EntitySet="t_Course" />
+            <End Role="t_Course1" EntitySet="t_Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_SC__Cno__08EA5793" Association="StdMng2015NModel.FK__t_SC__Cno__08EA5793">
+            <End Role="t_Course" EntitySet="t_Course" />
+            <End Role="t_SC" EntitySet="t_SC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_SC__Sno__07F6335A" Association="StdMng2015NModel.FK__t_SC__Sno__07F6335A">
+            <End Role="t_Student" EntitySet="t_Student" />
+            <End Role="t_SC" EntitySet="t_SC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Student__SImag__023D5A04" Association="StdMng2015NModel.FK__t_Student__SImag__023D5A04">
+            <End Role="t_Sdept" EntitySet="t_Sdept" />
+            <End Role="t_Student" EntitySet="t_Student" />
+          </AssociationSet>
+          <EntitySet Name="t_MassData" EntityType="StdMng2015NModel.t_MassData" />
+        </EntityContainer>
+        <EntityType Name="t_Course">
+          <Key>
+            <PropertyRef Name="Cno" />
+          </Key>
+          <Property Name="Cno" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CPno" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CCredit" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="t_Course1" Relationship="StdMng2015NModel.FK__t_Course__CPno__0519C6AF" FromRole="t_Course" ToRole="t_Course1" />
+          <NavigationProperty Name="t_Course2" Relationship="StdMng2015NModel.FK__t_Course__CPno__0519C6AF" FromRole="t_Course1" ToRole="t_Course" />
+          <NavigationProperty Name="t_SC" Relationship="StdMng2015NModel.FK__t_SC__Cno__08EA5793" FromRole="t_Course" ToRole="t_SC" />
+        </EntityType>
+        <EntityType Name="t_SC">
+          <Key>
+            <PropertyRef Name="Sno" />
+            <PropertyRef Name="Cno" />
+          </Key>
+          <Property Name="Sno" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Cno" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Grade" Type="Int16" />
+          <NavigationProperty Name="t_Course" Relationship="StdMng2015NModel.FK__t_SC__Cno__08EA5793" FromRole="t_SC" ToRole="t_Course" />
+          <NavigationProperty Name="t_Student" Relationship="StdMng2015NModel.FK__t_SC__Sno__07F6335A" FromRole="t_SC" ToRole="t_Student" />
+        </EntityType>
+        <EntityType Name="t_Sdept">
+          <Key>
+            <PropertyRef Name="SdeptID" />
+          </Key>
+          <Property Name="SdeptID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SdeptName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="t_Student" Relationship="StdMng2015NModel.FK__t_Student__SImag__023D5A04" FromRole="t_Sdept" ToRole="t_Student" />
+        </EntityType>
+        <EntityType Name="t_Student">
+          <Key>
+            <PropertyRef Name="sno" />
+          </Key>
+          <Property Name="sno" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="sname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SGender" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="SBirth" Type="DateTime" Nullable="false" />
+          <Property Name="Sdept" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sIDNum" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="sEmail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="t_SC" Relationship="StdMng2015NModel.FK__t_SC__Sno__07F6335A" FromRole="t_Student" ToRole="t_SC" />
+          <NavigationProperty Name="t_Sdept" Relationship="StdMng2015NModel.FK__t_Student__SImag__023D5A04" FromRole="t_Student" ToRole="t_Sdept" />
+          <Property Type="String" Name="SLoc" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__t_Course__CPno__0519C6AF">
+          <End Role="t_Course" Type="StdMng2015NModel.t_Course" Multiplicity="0..1" />
+          <End Role="t_Course1" Type="StdMng2015NModel.t_Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Course">
+              <PropertyRef Name="Cno" />
+            </Principal>
+            <Dependent Role="t_Course1">
+              <PropertyRef Name="CPno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_SC__Cno__08EA5793">
+          <End Role="t_Course" Type="StdMng2015NModel.t_Course" Multiplicity="1" />
+          <End Role="t_SC" Type="StdMng2015NModel.t_SC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Course">
+              <PropertyRef Name="Cno" />
+            </Principal>
+            <Dependent Role="t_SC">
+              <PropertyRef Name="Cno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_SC__Sno__07F6335A">
+          <End Role="t_Student" Type="StdMng2015NModel.t_Student" Multiplicity="1" />
+          <End Role="t_SC" Type="StdMng2015NModel.t_SC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Student">
+              <PropertyRef Name="sno" />
+            </Principal>
+            <Dependent Role="t_SC">
+              <PropertyRef Name="Sno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Student__SImag__023D5A04">
+          <End Role="t_Sdept" Type="StdMng2015NModel.t_Sdept" Multiplicity="0..1" />
+          <End Role="t_Student" Type="StdMng2015NModel.t_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Sdept">
+              <PropertyRef Name="SdeptID" />
+            </Principal>
+            <Dependent Role="t_Student">
+              <PropertyRef Name="Sdept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="t_MassData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int64" Name="Num" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifyDate" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StdMng2015NModelStoreContainer" CdmEntityContainer="StdMng2015NEntities">
+          <EntitySetMapping Name="t_Course">
+            <EntityTypeMapping TypeName="StdMng2015NModel.t_Course">
+              <MappingFragment StoreEntitySet="t_Course">
+                <ScalarProperty Name="Cno" ColumnName="Cno" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="CPno" ColumnName="CPno" />
+                <ScalarProperty Name="CCredit" ColumnName="CCredit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_SC">
+            <EntityTypeMapping TypeName="StdMng2015NModel.t_SC">
+              <MappingFragment StoreEntitySet="t_SC">
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+                <ScalarProperty Name="Cno" ColumnName="Cno" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Sdept">
+            <EntityTypeMapping TypeName="StdMng2015NModel.t_Sdept">
+              <MappingFragment StoreEntitySet="t_Sdept">
+                <ScalarProperty Name="SdeptID" ColumnName="SdeptID" />
+                <ScalarProperty Name="SdeptName" ColumnName="SdeptName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Student">
+            <EntityTypeMapping TypeName="StdMng2015NModel.t_Student">
+              <MappingFragment StoreEntitySet="t_Student">
+                <ScalarProperty Name="SLoc" ColumnName="SLoc" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="sname" ColumnName="sname" />
+                <ScalarProperty Name="SGender" ColumnName="SGender" />
+                <ScalarProperty Name="SBirth" ColumnName="SBirth" />
+                <ScalarProperty Name="Sdept" ColumnName="Sdept" />
+                <ScalarProperty Name="SImage" ColumnName="SImage" />
+                <ScalarProperty Name="sIDNum" ColumnName="sIDNum" />
+                <ScalarProperty Name="sEmail" ColumnName="sEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_MassData">
+            <EntityTypeMapping TypeName="StdMng2015NModel.t_MassData">
+              <MappingFragment StoreEntitySet="t_MassData">
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="StdModel" ZoomLevel="143">
+        <EntityTypeShape EntityType="StdMng2015NModel.t_Course" Width="1.5" PointX="0.875" PointY="0.875" Height="1.779012858072917" IsExpanded="true" />
+        <EntityTypeShape EntityType="StdMng2015NModel.t_SC" Width="1.5" PointX="3" PointY="1.125" Height="1.9700325520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="StdMng2015NModel.t_Sdept" Width="1.5" PointX="7.625" PointY="1.375" Height="1.5879931640624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="StdMng2015NModel.t_Student" Width="1.5" PointX="5.125" PointY="1" Height="3.1161507161458326" IsExpanded="true" />
+        <AssociationConnector Association="StdMng2015NModel.FK__t_Course__CPno__0519C6AF" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.4069230769230767" PointY="3.227071940104167" />
+          <ConnectorPoint PointX="1.4069230769230767" PointY="3.4770719401041674" />
+          <ConnectorPoint PointX="1.8534615384615383" PointY="3.4770719401041674" />
+          <ConnectorPoint PointX="1.8534615384615383" PointY="3.227071940104167" />
+        </AssociationConnector>
+        <AssociationConnector Association="StdMng2015NModel.FK__t_SC__Cno__08EA5793" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.375" PointY="1.8895064290364585" />
+          <ConnectorPoint PointX="3" PointY="1.8895064290364585" />
+        </AssociationConnector>
+        <AssociationConnector Association="StdMng2015NModel.FK__t_SC__Sno__07F6335A" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.125" PointY="2.1100162760416667" />
+          <ConnectorPoint PointX="4.5" PointY="2.1100162760416667" />
+        </AssociationConnector>
+        <AssociationConnector Association="StdMng2015NModel.FK__t_Student__SImag__023D5A04" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.625" PointY="2.16899658203125" />
+          <ConnectorPoint PointX="6.625" PointY="2.16899658203125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="StdMng2015NModel.t_MassData" Width="1.5" PointX="1" PointY="4" Height="1.7790128580729174" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

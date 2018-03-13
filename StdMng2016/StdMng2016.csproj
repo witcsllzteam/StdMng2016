@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{553BCD9D-D30E-448F-AA29-9AF919759E44}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StdMng2016</RootNamespace>
+    <AssemblyName>StdMng2016</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DsStd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsStd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="fmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmLogin.Designer.cs">
+      <DependentUpon>fmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmMain.Designer.cs">
+      <DependentUpon>fmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmRegister.Designer.cs">
+      <DependentUpon>fmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StdMng\fmAdTech.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StdMng\fmAdTech.Designer.cs">
+      <DependentUpon>fmAdTech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StdMng\fmDataSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StdMng\fmDataSet.Designer.cs">
+      <DependentUpon>fmDataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StdMng\fmEDM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StdMng\fmEDM.Designer.cs">
+      <DependentUpon>fmEDM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StdMng\fmLINQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StdMng\fmLINQ.Designer.cs">
+      <DependentUpon>fmLINQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StdMng\fmStdADO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StdMng\fmStdADO.Designer.cs">
+      <DependentUpon>fmStdADO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StdModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StdModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\DbaseCS.cs" />
+    <EmbeddedResource Include="fmLogin.resx">
+      <DependentUpon>fmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmMain.resx">
+      <DependentUpon>fmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmRegister.resx">
+      <DependentUpon>fmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="StdMng\fmAdTech.resx">
+      <DependentUpon>fmAdTech.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StdMng\fmDataSet.resx">
+      <DependentUpon>fmDataSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StdMng\fmEDM.resx">
+      <DependentUpon>fmEDM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StdMng\fmLINQ.resx">
+      <DependentUpon>fmLINQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StdMng\fmStdADO.resx">
+      <DependentUpon>fmStdADO.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="DsStd.xsc">
+      <DependentUpon>DsStd.xsd</DependentUpon>
+    </None>
+    <None Include="DsStd.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsStd.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsStd.xss">
+      <DependentUpon>DsStd.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\StdMng2015NEntities.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="StdModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StdModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5woso336.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5woso838 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5woso3411.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_Query.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_Query1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_QueryWH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copyright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copyright-1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\btn_Ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackNew.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackNew1.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
