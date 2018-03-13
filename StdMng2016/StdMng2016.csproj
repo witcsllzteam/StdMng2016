@@ -111,6 +111,7 @@
       <DependentUpon>StdModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Utility\DbaseCS.cs" />
+    <Compile Include="YMTest.cs" />
     <EmbeddedResource Include="fmLogin.resx">
       <DependentUpon>fmLogin.cs</DependentUpon>
     </EmbeddedResource>
