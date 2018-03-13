@@ -198,6 +198,7 @@
     <None Include="Resources\copyright-1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1.txt" />
     <Content Include="llz.txt" />
   </ItemGroup>
   <ItemGroup>
