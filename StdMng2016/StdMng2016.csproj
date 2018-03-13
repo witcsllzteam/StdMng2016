@@ -197,7 +197,11 @@
     <None Include="Resources\copyright-1.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="llz.txt" />
+=======
+    <Content Include="YM.txt" />
+>>>>>>> origin/ym
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_Ok.png" />
