@@ -198,12 +198,10 @@
     <None Include="Resources\copyright-1.png" />
   </ItemGroup>
   <ItemGroup>
-   <Content Include="1.txt" />
+    <Content Include="1.txt" />
     <Content Include="2.txt" />
-    <Content Include="3.txt" />
     <Content Include="llz.txt" />
-	<Content Include="TextFile1.txt" />
-
+    <Content Include="Test1.txt" />
     <Content Include="YM.txt" />
   </ItemGroup>
   <ItemGroup>
