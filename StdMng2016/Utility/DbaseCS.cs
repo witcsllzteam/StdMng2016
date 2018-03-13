@@ -15,7 +15,7 @@ namespace StdMng2016.Utility
         CmdTxt,
         StoreProcedure
     };
-
+    /**test*/
     /// <summary> 
     /// DbAccess类,即进行数据库访问时需要调用的类 
     /// </summary> 
